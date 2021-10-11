@@ -1,0 +1,32 @@
+#+title: Blog feature test
+#+author: Mike Delmonaco
+#+date: <2021-10-10 Sun>
+
+* Our language
+
+To demonstrate a basic type inference system, we will use a very simple language.
+
+We will consider the whole program to be just one expression. Here is what an expression can be:
+
+$$
+e = x\ |\ true\ |\ false\ |\ n |\ \textrm{if}\ e_1\ \textrm{then}\ e_2\ \textrm{else}\ e_3 |\ \lambda x.e\ |\ e_1 e_2\ |\ \mathrm{let}\ x = e_1\ \mathrm{in}\ e_2
+$$
+
+
+
+So we have variables, booleans, natural numbers, anonymous functions, function application, and let bindings for local variables.
+
+In case this syntax is confusing, here's how we'd implement ~applyFunction~ in this language:
+
+$$
+\lambda f.\lambda x. f\ x
+$$
+
+In haskell, we could have written
+
+#+BEGIN_SRC haskell
+\f -> \x -> f x
+#+END_SRC
+
+
+This function takes in two arguments ~f,x~ and calls ~f~ on ~x~.
